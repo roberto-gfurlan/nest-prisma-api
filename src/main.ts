@@ -6,8 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule,
     new FastifyAdapter(),
   );
-  await app.listen(3000);
+  await app.listen(3000); 
 
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
-bootstrap();
+bootstrap()
