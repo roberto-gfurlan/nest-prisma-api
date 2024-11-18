@@ -1,3 +1,4 @@
+import { stringify } from 'querystring';
 import { UserEntity, UserProps } from '../../user.entity';
 import { faker } from '@faker-js/faker';
 
@@ -42,4 +43,44 @@ describe('UserEntity', () => {
 
     expect(user.props.createdAt).toBe(createdAt);
   });
+
+  it('getter of name fiels should return the name', () => {
+    const userProps: UserProps = {
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+    };
+
+    const user = new UserEntity(userProps);
+    expect(user.name).toBeDefined();
+    expect(user.name).toBe(userProps.name);
+    expect(typeof user.name).toBe('string');
+  });
+
+  it('getter of email fiels should return the email', () => {
+    const userProps: UserProps = {
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+    };
+
+    const user = new UserEntity(userProps);
+    expect(user.email).toBeDefined();
+    expect(user.email).toBe(userProps.email);
+    expect(typeof user.email).toBe('string');
+  });
+
+  it('getter of password fiels should return the password', () => {
+    const userProps: UserProps = {
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+    };
+
+    const user = new UserEntity(userProps);
+    expect(user.password).toBeDefined();
+    expect(user.password).toBe(userProps.password);
+    expect(typeof user.password).toBe('string');
+  });
+
 });
